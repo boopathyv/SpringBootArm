@@ -1,0 +1,14 @@
+// Fixed Menubar
+var yourNavigation = $(".nav");
+        stickyDiv = "sticky";
+        yourHeader = 50;
+
+    $(window).on('scroll', function() {
+      if( $(this).scrollTop() > yourHeader ) {
+        yourNavigation.addClass(stickyDiv);
+      } else {
+        yourNavigation.removeClass(stickyDiv);
+    }
+});
+
+// About Readmore 

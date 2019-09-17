@@ -1,0 +1,48 @@
+<section class="joinus-section overlay-black">
+        
+  <div class="row justify-content-center animatedParent animateOnce">
+      <div class="col-lg-5 col-md-5">
+          <div class="animated fadeInUpShort slow go">
+              <img src="/assets/images/Join_Us.jpg" alt="">
+          </div>
+      </div>
+      <div class="col-lg-7 col-md-7">
+        
+              <h4>JOIN US</h4><span id="joinUsSpan" class="help-block hide">Enquiry is submitted successfully!</span>
+              <form [formGroup]="contactControlForm" (ngSubmit)="joinUs()">
+                <div class="form-row">
+                      <div class="col-sm-6 form-group">
+                          <input type="text" class="form-control" id="userName" placeholder="Your Name" autocomplete="off" formControlName="userName" required> 
+                          <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
+                              <div *ngIf="userName.errors.required">Please enter your name !</div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <input type="email" class="form-control" id="emailId" placeholder="Email Adress" autocomplete="off" formControlName="emailId" required >
+                            <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+                                <div *ngIf="emailId.errors.email || emailId.errors.required">Please enter a valid Email Id !</div>
+                            </div>
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <input type="number" class="form-control" id="mobileNumber" placeholder="Mobile" autocomplete="off" formControlName="mobileNumber" required >
+                            <div class="alert alert-danger" *ngIf="mobileNumber.touched && mobileNumber.invalid">
+                                <div *ngIf="mobileNumber.errors.required">Please enter your mobile number !</div>
+                                <div *ngIf="mobileNumber.errors.pattern">Please enter valid mobile number !</div>
+                            </div>
+                      </div>
+                      <div class="col-sm-12 form-group">
+                         <textarea class="form-control contact-textarea" id="message" rows="5" placeholder="Message" formControlName="message" required></textarea>
+                            <!--<div class="alert alert-danger" *ngIf="message.touched && message.invalid">
+                                <div *ngIf="message.errors.required">Message is required !</div>
+                            </div>-->
+                      </div>
+                      <div class="col-sm-3 text-left py-4">
+                        <button [disabled]="contactControlForm.invalid" type="submit"  class="btn btn-warning btn-md lgbtn" style="width: 45%;">Submit</button>
+                    </div>
+                  </div>
+              </form>
+        
+      </div>
+  </div>
+
+</section>

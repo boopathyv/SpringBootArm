@@ -1,0 +1,44 @@
+.blink-text {
+    padding-left: 15px;
+    /* animation:blinkingText 2s infinite; */
+    color: red !important; 
+    font-size: 20px;
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1.3s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes blinker {
+    from {opacity: 1.0;}
+    to {opacity: 0.0;}
+  }
+
+  .special-text {
+    font-size:20px;
+    color:red;
+    padding-left: 5px;
+  }
+
+  
+  .blink-text-2 {
+    width: 50%;
+    padding-left: 15px;
+    animation:blinkingText 1.8s infinite;
+    color: darkred !important; 
+    font-size: 20px;
+}
+
+.blink-text-3 {
+    width: 50%;
+    padding-left: 15px;
+    animation:blinkingText 1.2s infinite;
+    color: darkred !important; 
+    font-size: 20px;
+}
+
+.blink-color {
+    color: red !important;
+}

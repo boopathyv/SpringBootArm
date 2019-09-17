@@ -1,0 +1,7 @@
+ul.clearfix li{
+    list-style: none;
+}
+ul.clearfix li span.testdate{
+    color: #959090;
+    margin-left: 1.5em;
+}

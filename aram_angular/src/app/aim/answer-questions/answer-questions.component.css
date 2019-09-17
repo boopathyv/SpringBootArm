@@ -1,0 +1,13 @@
+.app-answer-questions {
+    background-color: white !important;   
+    min-height: 500px;
+    padding-top:25px !important;
+}
+
+.test-questions-table {
+    padding-top:25px !important;
+}
+
+.test-question-add-btn {
+    margin-bottom: 10px;
+}

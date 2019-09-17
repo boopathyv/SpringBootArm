@@ -1,0 +1,12 @@
+.login-card {
+    margin: auto !important;
+    top: 25%;
+}
+
+.login-page {
+    height: 100vh;
+}
+
+.login-btn {
+    float: right;
+}

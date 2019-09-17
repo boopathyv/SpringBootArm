@@ -1,0 +1,81 @@
+<section class="desc-sec">
+  <div class="row">
+    <div class="container">
+        <div class="col-md-12 text-center">
+          <div *ngIf="submitBtn">
+              <a href="javascript:void(0)" id="quiz-submit" class="btn btn-danger" (click)="testSubmit()">SUBMIT AND VIEW THE SCORE</a>
+              <app-time-out (submitQuiz)="onsubmitQuiz($event)"></app-time-out>
+          </div>
+          <div class="col-centered" *ngIf="responseMsg" >
+            <table class="table table-bordered p-2">
+              <!--<tr>
+                <td colspan="4">Online Test Result</td>
+              </tr>-->
+              <tr>
+                  <td colspan="4"><h4>Online Test Score : {{responseMsg.totalMarks}} / 200</h4></td>
+                </tr>
+              <tr>
+                <td>Answered Questions </td>
+                <td>{{responseMsg.attemptQuestion}}</td>
+                <td>Correct answers </td>
+                <td>{{responseMsg.correctAnswer}}</td>
+              </tr>
+              <tr>
+                  <td>Unanswered Questions </td>
+                  <td>{{responseMsg.unattendedQuestion}}</td>
+                  <td>Wrong answers </td>
+                  <td>{{responseMsg.wrongAnswer}}</td>
+              </tr>
+              
+            </table>
+          </div>
+        </div>
+      <br/>
+
+      <div class="list">
+        <div class="row py-2" *ngFor="let question of questions | paginate: config; let i =index " >
+            <div class="col-12">
+              <div class="passage" *ngIf="question.paragraph">
+                  <div class="text-center" ><b>Passage</b></div>
+                  <!--<div class="text-center" ><b>Passage - {{passageCount+1}}</b></div>-->
+                  <div class="qspass" [innerHTML]="question.paragraph | safe: 'html'"></div>
+              </div>
+              <span class="float-left pr-1"><strong>{{ ((config.currentPage-1) * config.itemsPerPage)+i+1 }}. </strong></span>
+              <div class="quest-sec" [innerHTML]="question.onlineTestQuestion | safe: 'html'">
+                 <!-- {{ ((config.currentPage-1) * config.itemsPerPage)+i+1 }}. {{question.onlineTestQuestion}} -->         
+              </div>
+              <div class="qus-img" *ngIf="question.imagePath"><img class="img-responsive autosize pl-5" src="http://139.59.83.193:8090/getImage?file={{question.imagePath.toString().toLowerCase()}}"></div>
+            </div>
+            <div class="col-12">
+                <ul class="ans-sec">
+                    <li *ngFor="let qntOptions of question.options; let j = index">
+
+                      <label [ngClass]="{'green-bg': (!submitBtn && (question.answer == albabetsSew[j])),'sel': (!submitBtn)}" *ngIf="qntOptions!='' && qntOptions!=null">
+
+                     <span class="ans-options">{{albabetsSew[j]}}. </span>
+                          <input type="radio" name="prelims_qs_{{question.questionId}}"  
+                          value="{{qntOptions}}" (change)="checkedAnswer($event)" 
+                          [attr.data-attendedQuestionId]="question.questionId"
+                          [attr.data-attendedAnswer]='albabetsSew[j]'
+                          /><span [innerHTML]="qntOptions | safe: 'html'"></span>
+                      </label>
+                    </li>
+                </ul>
+             </div>
+            <div class="col-12 px-4 text-justify">
+                <div *ngIf="expisOn">
+                    <span class="exptitle">Answer: </span><span class="ans-val"> option {{question.answer}}</span><br><span class="exptitle">Explanation: </span><br>
+                    <div class="qus-img" *ngIf="question.explanationImage"><img class="img-responsive autosize pl-5" src="http://139.59.83.193:8090/getImage?file={{question.imagePath.toString().toLowerCase()}}"></div>
+                    <div [innerHTML]="question.explanation | safe: 'html'"></div>                </div>
+            </div>
+        </div>
+        
+        <!--<button (click)="submitQuiz()" type="button">Submit</button>-->
+       
+      <pagination-controls (pageChange)="pageChange($event)" class="my-pagination text-center">
+    
+    
+    
+      </pagination-controls>
+
+    </div>

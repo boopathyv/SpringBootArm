@@ -1,0 +1,22 @@
+.desc-sec ul li{
+    list-style: none;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:center;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.selected .sel{
+    background: red;
+
+}
+li label.green-bg,li label.selected .green-bg{
+    background: green;
+}
+img.autosize{
+    width: auto;
+    height: auto;
+}

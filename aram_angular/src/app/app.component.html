@@ -1,0 +1,46 @@
+<button id="openModal" #openModal [hidden]="true" 
+ data-toggle="modal" data-target="#load-modal"></button>
+
+ <div class="modal fade opening-modal" id="load-modal" 
+     tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog load-modal" scroll="no">
+        <div class="modal-close">
+            <button type="button" data-dismiss="modal" id="close-modal" (click)="hideModal()" class="modal-close-btn">X</button>
+        </div>
+        <div>
+            <img src="assets/images/aram-whit-logo.png" class="modal-logo-img">
+        </div>
+
+        <div style="margin-top:10px;">
+            <img src="assets/images/text.png">
+        </div>
+        <!-- <div class="modal-content-1">
+            <span>
+                <span class="modal-content-1-yr">175+&nbsp;</span>
+                <span class="modal-content-1-txt">successful civil servants in just 5 years.</span>
+            </span>
+        </div>
+
+        <div class="modal-content-2">
+            <span>
+                <span class="modal-content-2-txt">Average of <b>25 successful students </b>every year.</span>
+            </span>
+        </div> -->
+
+        <div>
+            <img src="assets/images/pop_up_1.png" class="first-batch-img">
+        </div>
+
+        <div>
+            <img src="assets/images/pop_up_2.png" class="first-batch-img" style="max-width:340px !important;">
+        </div>
+
+        <div style="padding-bottom: 15px !important;">
+            <a routerLink="/aim/test-questions" data-dismiss="modal">
+                <img src="assets/images/pop_up_3.png" class="admissions-open-img">            
+            </a>
+        </div>
+    </div>
+ </div>
+
+<router-outlet></router-outlet>

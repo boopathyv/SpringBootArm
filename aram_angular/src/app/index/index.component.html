@@ -1,0 +1,296 @@
+<app-header></app-header>
+<!-- Slider Start -->
+<section class="main-slider-area">
+	<div class="container">
+		<div id="Container" class="row">
+			<div class="col-lg-9 col-md-9">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+					</ol>
+					<div class="carousel-inner" style="padding: 0 0; width: 100%">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_1.jpg"
+								alt="Civil service coaching center">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_2.jpg"
+								alt="TNPSC coaching institute in chennai">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_3.jpg"
+								alt="TNPSC coaching institute in chennai">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_4.jpg"
+								alt="IAS coaching center in chennai">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_5.jpg"
+								alt="best civil service coaching center">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="/assets/images/Slide_Image_6.jpg"
+								alt="ias coaching institute ">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators"
+						title="Civil service coaching center" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+						title="ias academy in chennai" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+			</div>
+			<div id="Latest_News" class="col-lg-3 col-md-3 swing">
+				<div *ngIf='loginStatus!=true'>
+					<a class="btn btn-lg btn-danger" style="width: 100%;" routerLink="/login">Login / Register</a>
+				</div>
+
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col" colspan="3"><b style="font-size: 20px">Latest News</b></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let newsdetails of latestNews">
+							<td>
+								<marquee>
+									<a href="{{newsdetails.link}}" [ngClass]="{'bold-text': newsdetails.isBold}">{{newsdetails.news}}</a>
+								</marquee>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+
+			</div>
+
+
+		</div>
+	</div>
+</section>
+<section class="aram-content">
+	<div class="col-12">
+		<p class="bottom-cnt p-1 text-center">'Aram' as the name says, we, at Aram IAS academy, are relentlessly working
+			towards our vision of producing dutiful and honest bureaucrats to the country. Indian Civil Services being
+			one of
+			the most elite jobs in the country, checks not just a candidate's knowledge but his/her personality as a
+			whole.
+		</p>
+		<div id="morecontents" class="bottom-cnt p-1">
+			<p class="p-1 text-center">At Aram IAS Academy, acknowledging this necessity, we are providing value-based
+				education system to the aspirants to enable them to accomplish their dream. Our humble journey started
+				in the
+				year 2011 and with every passing year, the number of aspirants from Aram IAS academy clearing the
+				prestigious exams has been
+				gliding up. Our success is attributed to the highly experienced and devoted faculties who hail from a
+				wide
+				spectrum of disciplines. Most of the faculties at Aram IAS academy are also proficient authors who have
+				published books of
+				exceptional quality.
+			</p>
+			<p class="p-1 text-center">
+				Aram’s curriculum is the most student friendly which has been designed after extensive studies done by
+				our R&D
+				team. We guide aspirants for cracking both UPSC and TNPSC(Group I and Group II) examinations. Aspirants
+				are
+				guided meticulously from Preliminary to Interview (Personality Assessment) level with classes focusing
+				on
+				Prelims(General Studies and CSAT), Mains(General studies and optional subjects) and Interview training.
+			</p>
+		</div>
+	</div>
+
+</section>
+
+<div id="readmorecnt">
+	<section class="defult-page-title rowbgclr">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="page-title-box">
+						<h4>WHY ARAM IAS ACADEMY</h4>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section class="defult-page-title">
+		<div class="row">
+			<img src="/assets/images/individual-mentoring.jpg" alt="tnpsc coaching institute in chennai" />
+			<div class="col-md-12 individual-sec">
+				<p class="p-1 text-center ">The importance of a mentor in every student’s life is best explained in the
+					popular
+					phrase ‘Matha Pitha Guru Deivam’.
+					At Aram IAS academy in chennai, we assign every student with a mentor who would guide and motivate
+					the student throughout the
+					preparation period.
+
+					The students face many ups and downs during their preparation time, in order to overcome all the
+					barriers, we
+					provide extensive motivation and mentoring sessions to them.</p>
+				<p class="p-1 text-center">
+
+					Students can talk to the mentors anytime and can get the most required ‘Moral support’ and ‘Right
+					guidance’
+					from them.
+
+					Our teachers act as bridges to students and help them to reach their destination by crossing the
+					river of
+					hardships.
+
+					The relationship between our teachers and the students are built on trust and commitment.
+					We help students to grow both professionally and personally.
+
+					Books give information and mentors give knowledge. </p>
+
+			</div>
+		</div>
+		<div class="row">
+			<img src="/assets/images/study-metirial.jpg" alt="ias academy in chennai"
+				title="Famous civil service coaching center" />
+			<div class="col-md-12 stduymetrial-sec">
+				<p class="p-1 text-center">An aspirant should be like a chameleon. Not in changing colours but in
+					looking at all
+					directions at once.
+
+					An aspirant has to think in all possible perspectives. But this doesn't mean that he/she has to
+					study all the
+					available materials.
+
+					In this era of information, one has to narrow down the sources of reference as much as possible.
+
+					At Aram IAS academy, we are providing the students with the best notes and study materials. All our
+					materials are
+					developed after thorough research done by our R&D team. Right materials and right guidance are the
+					mantras for
+					success in CSE
+				</p>
+
+			</div>
+		</div>
+		<div class="row">
+			<img src="/assets/images/best-facalty-team.jpg" alt="tnpsc classes in chennai" />
+			<div class="col-md-12 facalty-sec">
+				<p class="p-1 text-center">Teachers are the architects of a student’s life.
+
+					A great teacher is one who is passionate, innovative, knowledgeable, skilled , experienced and
+					inspirational.
+
+					Every member of our faculty team is a jewel in our academy. They are one among the best teachers in
+					Civil
+					services exam teaching and coaching. They are a team of absolutely dedicated and passionate
+					teachers.</p>
+				<p class="p-1 text-center">
+
+					Most of our teachers are also proficient authors. They have published one of the finest books for
+					CSE
+					preparation.
+
+					To this credit, Mr.M.Karthikeyan, Director of Aram IAS academy, has published books on Ethics,
+					Integrity &
+					Aptitude;TNPSC General Studies manual with McGraw publication and Internal Security with Pearson
+					publication.
+					Apart from this, his book on governance has taken an edge in the preparation of General Studies
+					paper II.
+
+					Mr.M. Senthil Kumar,the other Director of Aram IAS academy and Mr.S.Rijesh,a faculty from ARAM IAS
+					academy have published a book on
+					Society which assists the students in their preparation for General Studies paper I.
+
+
+				</p>
+
+			</div>
+		</div>
+		<div class="row">
+			<img src="/assets/images/study-hall.jpg" alt="UPSC coaching center in chennai"
+				title="UPSC coaching center in chennai" />
+			<div class="col-md-12 studyhall-sec">
+				<p class="p-1 text-center">Free study hall in the academy premises will give you a conducive environment
+					to stay
+					motivated and concentrate better on the studies. </p>
+				<p class="p-1 text-center">
+
+					24*7 study hall facility enables the students to access mentors and teachers anytime to clarify
+					their doubts
+
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<img src="/assets/images/till_the_end.jpg" alt="Civil service coaching center"
+				title="Civil service coaching center" />
+			<div class="col-md-12 tillend-sec">
+				<p class="p-1 text-center">The seed, that is, your dream of becoming a civil servant has been sowed at
+					the right
+					time.
+
+					To nourish the seed and to enable it to grow into an unshakable tree to bear the fruit of success,
+					you need
+					the right guidance from the right mentors.
+
+					Our teachers will travel along with you in your journey from the seed of 'a dream' to the fruit of
+					'success'.
+				</p>
+				<p class="p-1 text-center">
+					Once you are registered as a student at Aram IAS academy in chennai, you will be taken care of till
+					your dream come true.
+					Aram IAS academy is a teamwork and we care for every person in the team.
+
+					We do not differentiate between ‘passed out’ and ‘current’ students. Students can seek guidance and
+					motivation
+					even after the completion of their course.
+
+
+				</p>
+			</div>
+		</div>
+	</section>
+
+</div>
+<!-- <div class="col-12 p-2 text-center">
+	<br> &nbsp;<a (click)="showMoreContent($event)" id="morecnts" class="btn-danger btn-sm text-center"
+		style="color:#fff; cursor: pointer;">Know More</a>
+</div> -->
+<!-- Subscribe Start -->
+<!-- <section class="subscribe-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-sm-12 col-12">
+                    <div class="subscribe-col text-center">
+                        <h3>subscribe our newsletter</h3>
+                        <form>
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <input class="form-control" id="subscribeId" type="email" placeholder="Enter Your Email">
+                                    <span class="input-group-addon" onClick="subscribe()">Subscribe</span>
+                                </div>
+								<div id="errorEmailId" ><span  style="color:red">Please enter a valid Email ID! </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+
+
+
+<app-footer></app-footer>

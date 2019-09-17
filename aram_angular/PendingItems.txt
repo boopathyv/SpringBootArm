@@ -1,0 +1,12 @@
+1. contact us form
+2. profile icon
+3. change password
+4. forgot Password
+5. Logout
+
+6. online test
+7. Prelims Quiz test result with detailed report.
+8. Datepicker functionality
+
+
+

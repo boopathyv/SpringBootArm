@@ -1,0 +1,78 @@
+<div class="student-answers">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        Student Answers
+
+        <div class="row test-questions-table">
+          <div class="col-sm-12">
+            <table class="table table-striped" [mfData]="answers" #mf="mfDataTable" [mfRowsOnPage]="5">
+              <thead>
+                <tr>
+                  <th>
+                    <mfDefaultSorter by="student.studentName">Student Name</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter>Mobile Number</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="testQuestion.testDate">Test Date</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter>Student Answer</mfDefaultSorter>
+                  </th>
+
+                  <th>
+                    <mfDefaultSorter>Feedback</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="feedbackOn">Feedback Uploaded On</mfDefaultSorter>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of mf.data">
+                  <td>
+                    {{item.student.studentName}}
+                  </td>
+                  <td>
+                    {{item.student.mobileNumber}}
+                  </td>
+                  <td>{{getDateFormat(item.testQuestion.testDate)}}</td>
+                  <td><a href="{{serviceUrl}}?file={{item.filePath}}" target="_blank">Click to View <i
+                        class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a></td>
+
+                  <td>
+                    <a *ngIf="item.isCorrected" href="{{serviceUrl}}?file={{item.feedbackFilePath}}"
+                      target="_blank">Click
+                      to view <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a>
+                    <div *ngIf="!item.isCorrected">
+                        <form>
+                          <div class="form-group">
+                            <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                          </div>
+                          <button type="button" class="btn btn-sm btn-success" (click)="uploadFeedback(item.studentAnswerId)">
+                            Submit
+                          </button>
+                        </form>
+                      </div>
+                  </td>
+                  <td>{{item.isCorrected ? getDateFormat(item.feedbackOn) : 'NIL'}}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

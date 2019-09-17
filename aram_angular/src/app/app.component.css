@@ -1,0 +1,158 @@
+.load-modal {
+  left: 0px;
+  top: 0px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden !important;
+  z-index: 0;
+  background-color: #512b64 !important;
+  width: 575px;
+  /* height: 100%; */
+  
+}
+
+.modal-logo-img {
+    /* height:118px; */
+    max-width:390px;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+}
+
+.modal-content-1 {
+  background-color: #F9C530;
+  color: #512b64;
+  width: 575px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  margin-top: 20px;
+
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-1-yr {
+  font-weight: bolder;
+  /* height: 100%; */
+  font-size: 35px;
+}
+
+.modal-content-1-txt {
+  font-size: 28px;
+  /* height: 100%; */
+}
+
+.modal-content-2 {
+  background-color: #F9C530;
+  color: #512b64;
+  width: 575px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  margin-top: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content-2-txt {
+  font-size: 28px;
+  /* height: 100%; */
+}
+
+.first-batch-img {
+  max-width:420px;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+  margin-top: 10px;
+  /* margin-top: 10px; */
+}
+
+.admissions-open-img {
+  max-width:565px;
+  margin-left: 5px !important;
+  /* display: block; */
+  /* margin-right: auto; */
+  margin-top: 0px;
+}
+
+.opening-modal {
+  top: 0px !important;
+}
+
+/* width */
+.opening-modal::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+.opening-modal::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+.opening-modal::-webkit-scrollbar-thumb {
+  background: transparent; 
+}
+
+/* Handle on hover */
+.opening-modal::-webkit-scrollbar-thumb:hover {
+  background: transparent; 
+}
+
+.modal-close {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.modal-close-btn {
+  background-color: #8C5B99;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  border: none;
+}
+
+@media(max-width: 998px) {
+  .load-modal {
+    width: 100%;
+  } 
+
+  .modal-content-1 {
+    width: 100%;
+  }
+
+  .modal-content-2 {
+    width: 100%;
+  }
+
+  .modal-content-1-txt {
+    font-size: 17px;
+    /* height: 100%; */
+  }
+
+  .modal-content-1-yr {
+    font-weight: bolder;
+    /* height: 100%; */
+    font-size: 24px;
+  }
+
+  .modal-content-2-txt {
+    font-size: 17px;
+    /* height: 100%; */
+  }
+
+  .modal-content-2-yr {
+    font-weight: bolder;
+    /* height: 100%; */
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,75 @@
+<app-header></app-header>
+<!-- login page Start -->
+<section class="loginarea">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="container-login100 d-flex justify-content-center p-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Sign In</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-danger" *ngIf="responseMSG">{{responseMSG.message}}</div>
+                            <form [formGroup]="loginControlForm" (ngSubmit)="loginAccount()">
+                                <div class="form-group">
+                                    <input type="text" autocomplete="off" class="form-control"
+                                        (keypress)="numberOnly($event)" placeholder="User ID" id="login_name"
+                                        formControlName="userLoginId" required>
+                                    <div class="alert alert-danger" *ngIf="userLoginId.touched && userLoginId.invalid">
+                                        <div *ngIf="userLoginId.errors.required">Please enter UserID</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" id="login_pass"
+                                        formControlName="password" required>
+                                    <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                                        <div *ngIf="password.errors.required"> Please enter Password</div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button [disabled]="loginControlForm.invalid" type="submit"
+                                        class="btn btn-warning btn-md lgbtn" style="width: 45%;">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center">
+                                Don't have an account? <a routerLink="/register">Sign Up</a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a routerLink="/forgotpass">Forgot your password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <div class="card" style="padding:15px;width:100%;margin-top: 4px;margin-bottom: 15px;">
+                    <h5><b style="color:black;">Instructions</b></h5>
+                    <div>
+                        Welcome Aspirants! Begin your journey with Aram IAS Academy!<br /><br />
+
+                        Login OR Sign Up with us!<br /><br />
+
+                        ✓ Already a member? Login with your credentials.<br />
+                        ✓ Want to create a new account? Sign Up.<br />
+                        ✓ You will be directed to select 'Prelims Test Series 2019-20 (OR) Mains Test 2019'<br />
+                        ✓ Fill the form with the asked credentials.<br />
+                        ✓ A verification key will be sent to your email ID.<br />
+                        ✓ After verification you will be directed to the respective test series.<br />
+                        ✓ For Mains Test Series 2019 choose among Governance (OR) Ethics.<br />
+                        ✓ You can answer questions and upload an image / PDF file.<br />
+                        ✓ Individual feedback for your answers will be given by our eminent author.<br />
+                        ✓ General discussion will also be uploaded for the same.<br /><br />
+
+                        ATTEND THIS FREE ONLINE TEST AND BECOME THE FUTURE! <br />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

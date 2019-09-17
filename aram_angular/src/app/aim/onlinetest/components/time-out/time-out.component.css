@@ -1,0 +1,8 @@
+.timer{
+    font-size: 1.3rem;
+    color: #b22823;
+    font-weight: bold;
+}
+.timer p{
+    text-align: right;
+}

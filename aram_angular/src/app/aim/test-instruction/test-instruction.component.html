@@ -1,0 +1,129 @@
+
+ <section class="course-single-area desc-sec">
+   
+  <div class="container">
+      <div class="row">
+                  <div id="prilms-loader"></div>
+            <div class="col-lg-8 col-md-8">
+                <h6><strong>CSAT FREE ONLINE TEST (80 QUESTIONS)</strong></h6><hr>
+                <p>(A) CORRECT ANSWER - 2.5 MARKS <br> (B) WRONG  ANSWER   - 1/3 RD MARKS TO BE DEDUCTED (0.833)</p><br>
+                    <div class="row">
+                      <ng-container *ngFor=" let tests of allTests">
+                          <div class="col-sm-4 col-md-4" *ngIf="tests.testType=='CSAT'">
+                              <div class="onlinetestgrid">
+                                <h6><strong>{{tests.testName}}</strong></h6><hr>
+                                  <a class="btn-danger btn-sm text-center text-white" [attr.data-tstqid]="tests.testId" (click)="selectedtstID($event)" data-toggle="modal" data-target="#myModal">ATTEND</a>
+                              </div>    
+                                                 
+                            </div>
+                          </ng-container>
+                    </div>
+
+
+                    <h6 class="pt-5"><strong>FET FREE ONLINE TEST (100 QUESTIONS)</strong></h6><hr>
+                    <p>(A) CORRECT ANSWER - 2 MARKS <br> (B) WRONG  ANSWER   - 1/3 RD MARKS TO BE DEDUCTED (0.67)</p><br>
+                    <div class="row">
+                      <ng-container *ngFor=" let tests of allTests">
+                          <div class="col-sm-4 col-md-4" *ngIf="tests.testType=='FET'">
+                              <div class="onlinetestgrid">
+                                <h6><strong>{{tests.testName}}</strong></h6><hr>
+                                  <a class="btn-danger btn-sm text-center text-white" [attr.data-tstqid]="tests.testId" (click)="selectedtstID($event)" data-toggle="modal" data-target="#myModal">ATTEND</a>
+                              </div>    
+                                                 
+                            </div>
+                          </ng-container>
+                    </div>
+
+
+                    <h6 class="pt-5"><strong>HST FREE ONLINE TEST (100 QUESTIONS)</strong></h6><hr>
+                    <p>(A) CORRECT ANSWER - 2 MARKS <br> (B) WRONG  ANSWER   - 1/3 RD MARKS TO BE DEDUCTED (0.67)</p><br>
+                    <div class="row">
+                      <ng-container *ngFor=" let tests of allTests">
+                          <div class="col-sm-4 col-md-4" *ngIf="tests.testType=='HST'">
+                              <div class="onlinetestgrid">
+                                <h6><strong>{{tests.testName}}</strong></h6><hr>
+                                  <a class="btn-danger btn-sm text-center text-white" [attr.data-tstqid]="tests.testId" (click)="selectedtstID($event)" data-toggle="modal" data-target="#myModal">ATTEND</a>
+                              </div>    
+                                                 
+                            </div>
+                          </ng-container>
+                    </div>
+
+                      <!--<div class="col-sm">
+                        <div class="onlinetestgrid">
+                          <h6><strong>CSAT FREE ONLINE TEST (80 QUESTIONS)</strong></h6><hr>
+                          <p>(A) CORRECT ANSWER - 2.5 MARKS <br> (B) WRONG  ANSWER   - 1/3 RD MARKS TO BE DEDUCTED (0.833)</p><br>
+                          <a class="btn-danger btn-sm text-center text-white" data-toggle="modal" data-target="#myModal">ATTEND</a>
+                        </div>                        
+                      </div>-->
+                      <!--<div class="col-sm">
+                        <div class="onlinetestgrid">
+                          <h6><strong>Group 2 Mock Test - 2</strong></h6><hr>
+                          <p>TNPSC Group 2 Mock Test <br> 200 Questions (GS+TAMIL) based on latest exam pattern</p><br>
+                          <a class="btn-danger btn-sm text-center text-white" data-toggle="modal" data-target="#myModal" >ATTEND</a>
+                        </div>                        
+                      </div>-->
+          </div>         
+          <div class="col-lg-4 col-md-4">
+              <div class="sidebar-col">
+                  <div class="categories">
+                      <div class="sidebar-title">
+                          <h3>Your Score</h3>
+                      </div>
+                      <ul class="clearfix" *ngFor="let tresult of testScores">
+                        <li>{{tresult.testName}} <span class="testdate">{{tresult.attemptDate}}</span><span class="pull-right">{{tresult.totalMarks}}/200</span></li>
+                        <!--<li>CSAT FREE ONLINE TEST <span class="testdate">10 Feb,2019</span><span class="pull-right">20/80</span></li>-->
+
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+   <!-- online Test instructions-->
+   <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Online Test Instructions</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body text-left">
+                <p>
+                    1. IMMEDIATELY AFTER THE COMMENCEMENT OF THE EXAMINATION, YOU SHOULD CHECK THAT THIS
+                    TEST BOOKLET DOES NOT HAVE ANY UNPRINTED OR TORN OR MISSED PAGES OR ITEMS, ETC. IF SO,GET
+                    IF REPLACED BY A COMPLETE TEST BOOKLET.
+                </p>
+                <p>
+                    2. Please not that it is the candidate’s responsibility to encode and fill in the Roll Number and Test Booklet carefully
+                    and without any omission or discrepancy at the appropriate places in the OMR Answer Sheet. Any omission / discrepancy will render the Answer Sheet liable for rejection.
+                </p>
+                <p>
+                    3. You have to enter your Roll Number on the Test Booklet in the Box provided alongside. DO NOT write anything else on the
+                    Test Booklet.
+                 </p>
+                 <p>
+                    4. This Test Booklet contain 80 Times (questions). Each item is printed in English. Each item comprises four responses
+                    (answers). You will select the response which you want to mark on the Answer Sheet. In case you feel that there is more than
+                    one correct response, mark the response which you consider the best. In any case, choose ONLY ON response for each item.
+                  </p>
+                  <p>
+                    5. You have to mark all your responses ONLY on the separate Answer Sheet provided. See direction in the Answer Sheet.
+                  </p><p>
+                    6. All items carry equal marks.
+                </p>
+                <div class="text-center">
+                    <a class="btn-danger btn-sm text-center text-white" data-dismiss="modal" routerLink="/aim/onlinetest">Start Test</a>
+
+                </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+

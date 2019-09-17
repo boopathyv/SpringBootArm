@@ -1,0 +1,94 @@
+  <section class="course-single-area desc-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="course-single-col desc-sec">
+                    <div id="prilms-loader"></div>
+                    <div  *ngIf="prelimsData">
+                        <h4>Prelims Quiz</h4>
+                        <hr>
+                        <div id="target" *ngFor="let prelimsQA of prelimsData; let i = index;">
+                            <div class="quiz-view">
+                            <div class="row py-2">
+                                <div class="col-12 quest-sec">{{i+1}}{{') '}}{{prelimsQA.prelimsQuestion}}</div>
+                                    <div class="col-12">
+                                        <ul class="ans-sec" *ngFor="let qntOptions of prelimsQA.options; let j = index">
+                                            <li *ngIf="qntOptions!=''"><span class="ans-options">{{albabetsSew[j]}}. </span><input type="radio" attr.data-qids='{{i+1}}' attr.data-answered='{{albabetsSew[j]}}' name="prelims-qus-{{i+1}}" value="{{albabetsSew[j]}}" (change)="checkedAnswer($event)">{{qntOptions}}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 px-4 text-justify">
+                                        <div *ngIf="expisOn">
+                                            <span class="exptitle">Answer: </span><span class="ans-val" id="prelims_as_1" textname="Both 1 and 2"> option {{prelimsQA.answer}}</span><br><span class="exptitle">Explanation: </span><br>
+                                            {{prelimsQA.explanation}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center" *ngIf="submitBtn">
+                                <a href="javascript:void(0)" id="quiz-submit" class="btn btn-danger" data-toggle="modal" data-target="#myModal" (click)="submitPrelimzQuiz()">SUBMIT AND VIEW THE SCORE</a>
+                        </div>
+                    </div>
+                    <div class="error-col" *ngIf="noRecords">
+                            <h1><span>oops!</span> Prelims quiz is not found </h1><h6>Please search with previous days..!</h6>
+                    </div>
+                             <!-- The Test  Score Popup-->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Prelims Quiz Score</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body text-center">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th scope="col">Attended Qutions</th>
+                                            <td>{{answerdQtns}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Unattended Qutions</th>
+                                            <td>{{unAttendedQtns}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Correct Answers</th>
+                                            <td>{{correctAnswers}}</td>
+                                         </tr>
+                                         <tr>
+                                            <th scope="col">Wrong Answers</th>
+                                            <td>{{wrongAnswers}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="text-center"><span *ngIf="finalScore">  Your Score: {{finalScore.toFixed(2)}}/{{numberofQtns*correctAnsMarks}}</span></th>
+                                        </tr>
+                                    </table>
+                              <div id="my-score"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="sidebar-col">
+                    <div class="categories">
+
+                        <div class="sidebar-title">
+
+                            <h6>DATEWISE - CURRENT AFFAIRS</h6>
+
+                        </div>
+
+                        <ngb-datepicker [(ngModel)]="datemodel" [minDate]="calendarMin" [maxDate]="calendarMax" (ngModelChange)="ondateChange($event)"></ngb-datepicker>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

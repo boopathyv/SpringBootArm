@@ -1,0 +1,69 @@
+<div class="containre">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Upload File</h3>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom:40px;">
+    <div class="col-sm-12">
+      <div class="card" style="margin:auto;">
+        <div class="card-body">
+          <form>
+
+
+            <div class="form-group">
+              <label for="uploadType">Upload Type</label>
+              <select class="form-control" id="uploadType" name="uploadType" [(ngModel)]="uploadIns.uploadType">
+                <option value="uploadCurrentAffairs">Upload Current Affairs</option>
+                <option value="uploadPrelimsQuiz">Upload Prelims Quiz</option>
+                <option value="uploadOnlineTest">Upload Online Test</option>
+                <option value="uploadImage">Upload Image</option>
+              </select>
+            </div>
+            <div class="form-group" *ngIf="uploadIns.uploadType == 'uploadCurrentAffairs'">
+              <label for="currentAffairsType">Current Affairs Type</label>
+              <select class="form-control" id="currentAffairsType" name="currentAffairsType"
+              [(ngModel)]="uploadIns.currentAffairsType">
+                <option value="Fortnight">Fortnight</option>
+                <option value="Prelims">Prelims</option>
+                <option value="Mains">Mains</option>
+                <option value="Mains_Quiz">Mains Quiz</option>
+              </select>
+            </div>
+
+            <div class="form-group" *ngIf="uploadIns.uploadType == 'uploadCurrentAffairs' || uploadIns.uploadType == 'uploadOnlineTest'">
+              <label for="heading">Heading</label>
+              <input type="text" class="form-control" name="heading" id="heading" placeholder=""
+                [(ngModel)]="uploadIns.heading">
+            </div>
+
+            <div class="form-group" *ngIf="uploadIns.uploadType == 'uploadCurrentAffairs'">
+              <label for="shortDescription">
+                Short Description
+              </label>
+              <input type="text" class="form-control" name="shortDescription" id="shortDescription" [(ngModel)]="uploadIns.shortDescription">
+            </div>
+
+            <div class="form-group" *ngIf="uploadIns.uploadType == 'uploadPrelimsQuiz'">
+                <label for="quizDate">
+                  Quiz Date
+                </label>
+                <input type="date" class="form-control" name="quizDate" id="quizDate" [(ngModel)]="uploadIns.quizDate">
+              </div>
+
+            <div class="form-group" *ngIf="uploadIns.uploadType">
+              <label for="file">Choose File &nbsp;&nbsp;</label>
+              <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+            </div>
+          </form>
+
+          <div>
+            <button type="button" [disabled]="!uploadIns.uploadType" (click)="submit()" class="btn btn-sm btn-success">Submit</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

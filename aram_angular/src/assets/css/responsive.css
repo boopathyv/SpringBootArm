@@ -1,0 +1,122 @@
+@media only screen and (max-width:1366px) {
+	
+}
+@media only screen and (max-width:1199px) {
+	.about-item {
+		margin-bottom: 25px;
+	}
+	.para-space {
+	    margin-bottom: 25px;
+	}
+}
+
+@media only screen and (max-width:991px) {
+	.separator-section {
+		padding: 100px 0 0;
+	}
+	.separator-col img {
+		margin-top: 0;
+	}
+	.sidebar-post ul li {
+		margin-bottom: 40px;
+	}
+	.main-herader .navbar-expand-md .navbar-nav .nav-link {
+		font-size: 13px;
+		padding: 25px 3px
+	}
+	.dropdown-item {
+		font-size: 13px;
+	}
+}
+
+
+@media only screen and (max-width:767px) {
+	.center-767 {
+		float: none;
+		text-align: center !important;
+	}
+	.main-herader .navbar-expand-md .navbar-nav .nav-link {
+	    font-size: 14px;
+	    padding: 8px 0px;
+	    text-align: left;
+	}
+	.dropdown-item {
+		font-size: 14px;
+	}
+	.collapse.show {
+	    display: block;
+	    height: 325px;
+	    overflow-y: scroll;
+	}
+	.navbar-dark .navbar-toggler {
+	    background: #FFB606;
+	    border-radius: 0;
+	}
+	.course-item h4 {
+		font-size: 18px;
+	}
+	.separator-section {
+		padding: 100px 0 50px;
+	}
+	.separator-col {
+		margin-bottom: 50px;
+	}
+	.section-title .title-style h2 {
+		line-height: 36px;
+	}
+	.post-box {
+		margin-bottom: 30px;
+	}
+	.slide__item {
+		height: 78vh;
+	}
+	.features-col h4 {
+	    font-size: 18px;
+	    font-weight: 500;
+	}
+
+}
+
+
+@media only screen and (max-width:575px) {
+	.center575 {
+		float: none;
+		text-align: center;
+	}
+	.header-topbar-col ul li {
+		float: none;
+		margin-right: 0;
+	}
+	.header-topbar-col {
+		text-align: center;
+		padding-top: 5px;
+		padding-bottom: 0;
+	}
+	.social-link-group {
+		text-align: center;
+		padding-bottom: 5px;
+	}
+	.navbar-dark .navbar-toggler {
+		margin-right: 15px;
+	}
+	.navbar-dark .navbar-brand {
+		margin-left: 15px;
+	}
+	.main-herader .navbar-expand-md .navbar-nav .nav-link {
+		margin-left: 20px;
+	}
+}
+
+@media only screen and (max-width:480px) {
+
+}
+
+@media only screen and (max-width:420px) {
+	.counter-col p {
+		font-size: 16px;
+	}
+	.main-herader .navbar-brand img {
+	    width: 170px;
+	}
+}
+

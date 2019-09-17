@@ -1,0 +1,21 @@
+<app-header></app-header>
+<section class="defult-page-title rowbgclr-prelims">
+    <div class="row">
+        <div class="container">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <ul class="tabs tab-style text-center" id="subtabs" role="tablist">
+
+                        <li [routerLinkActive]="['active']"><a routerLink="prelims-test">Prelims Test Series 2019-20</a></li>
+
+                        <li [routerLinkActive]="['active']"><a routerLink="mains-test">Mains Test 2019</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>

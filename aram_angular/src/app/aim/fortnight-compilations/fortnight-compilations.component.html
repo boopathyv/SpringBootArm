@@ -1,0 +1,49 @@
+
+  <section class="course-single-area desc-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="course-single-col desc-sec">
+                    <div id="prilms-loader"></div>
+                        <div  *ngIf="prelimsData">
+                            <div id="target" *ngFor="let prelims of prelimsData">
+                                <div class="article wht">
+                                    <h4 class="article-head"><a href="{{pdfFilePath}}?file={{prelims.location}}" class="" target="_blank">{{prelims.heading}}</a></h4>
+                                    <div class="short-desc">{{prelims.shortDescription}}</div>
+                                    <div class="share-sec-with-btn">
+                                        <div class="row">
+                                        <div class="col-lg-6 col-md-6"></div>
+                                        <div class="col-lg-6 col-mf-6"><a href="{{pdfFilePath}}?file={{prelims.location}}" class="gdir full-view" target="_blank"><span class="btn-text">CONTINUE READING </span><span class="btn-icon"> <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a></div> 
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="error-col" *ngIf="noRecords">
+                                <h1><span>oops!</span> Fortnight compilations is not found </h1><h6>Please search with previous days..!</h6>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="sidebar-col">
+                    <div class="categories">
+
+                        <div class="sidebar-title">
+
+                            <h6>DATEWISE - CURRENT AFFAIRS</h6>
+
+                        </div>
+
+                        <ngb-datepicker [(ngModel)]="datemodel" [minDate]="calendarMin" [maxDate]="calendarMax" (ngModelChange)="ondateChange($event)"></ngb-datepicker>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

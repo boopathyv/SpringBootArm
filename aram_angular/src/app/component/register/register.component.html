@@ -1,0 +1,135 @@
+<div *ngIf="isLoading" class="aram-modal">
+    <div class="aram-modal-content">
+        <img src="assets/images/loader.gif" class="aram-loader-gif">
+    </div>
+</div>
+
+<app-header></app-header>
+
+<!-- login page Start -->
+<section class="loginarea">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="d-flex justify-content-center p-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Sign Up</h3>
+                        </div>
+                        <div class="card-body" *ngIf="!userID">
+                            <div class="alert alert-danger" *ngIf="responseMSG">{{responseMSG.message}}</div>
+                            <form [formGroup]="signupForm" (ngSubmit)="signup()">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" autocomplete="off" placeholder="Name"
+                                        id="studentName" name="studentName" formControlName="studentName"
+                                        [(ngModel)]="user.studentName" required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('studentName').touched || signupForm.get('studentName').dirty) && signupForm.get('studentName').errors">
+                                        Please enter your name
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" autocomplete="off" placeholder="Email Id"
+                                        id="emailId" name="emailId" formControlName="emailId" [(ngModel)]="user.emailId"
+                                        required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('emailId').touched || signupForm.get('emailId').dirty) && signupForm.get('emailId').errors">
+                                        Please enter your valid email
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" (keypress)="numberOnly($event)"
+                                        maxlength="10" autocomplete="off" placeholder="Mobile number" id="mobileNumber"
+                                        formControlName="mobileNumber" [(ngModel)]="user.mobileNumber" required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('mobileNumber').touched || signupForm.get('mobileNumber').dirty) && signupForm.get('mobileNumber').errors">
+                                        Please enter valid mobile number
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-left: 24px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" [(ngModel)]="user.registeredWithUPSC" id="registeredWithUPSC" formControlName="registeredWithUPSC">
+                                        <label class="form-check-label" for="registeredWithUPSC">
+                                            Register with UPSC
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" *ngIf="user.registeredWithUPSC">
+                                    <input type="text" class="form-control" autocomplete="off"
+                                        placeholder="UPSC Roll NO" id="rollNoUPSC" name="rollNoUPSC"
+                                        formControlName="rollNoUPSC" [(ngModel)]="user.rollNoUPSC" required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('rollNoUPSC').touched || signupForm.get('rollNoUPSC').dirty) && signupForm.get('rollNoUPSC').errors">
+                                        Please enter your UPSC roll number
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" autocomplete="off"
+                                        placeholder="Password" id="password" name="password" formControlName="password"
+                                        [(ngModel)]="user.password" required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('password').touched || signupForm.get('password').dirty) && signupForm.get('password').errors">
+                                        Please enter your password
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control"
+                                        [disabled]="!!user.password ? false : true" autocomplete="off"
+                                        placeholder="Confirm Password" id="confirmPassword" name="confirmPassword"
+                                        formControlName="confirmPassword" [(ngModel)]="user.confirmPassword" required>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(signupForm.get('confirmPassword').touched || signupForm.get('confirmPassword').dirty) && signupForm.get('confirmPassword').errors">
+                                        Please enter your confirm password
+                                    </div>
+
+                                    <div class="alert alert-danger"
+                                        *ngIf="user.password && user.confirmPassword && user.password != user.confirmPassword">
+                                        Password didn't match
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <button [disabled]="signupForm.invalid || user.password != user.confirmPassword"
+                                        type="submit" class="btn btn-warning btn-md lgbtn"
+                                        style="width: 45%;">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="card-body" *ngIf="userID">
+                            <h5 style="color:black !important;">Enter your OTP. You have received OTP in registered
+                                mail.</h5>
+                            <div class="form-group">
+                                <input type="password" class="form-control" autocomplete="off" placeholder="OTP"
+                                    id="otp" name="otp" [(ngModel)]="otp" required>
+                            </div>
+                            <div style="display:flex;">
+                                <div>
+                                    <button type="button" class="btn btn-warning btn-md" (click)="resendOTP()">Resend
+                                        OTP</button>
+                                </div>
+                                <div style="margin-left: 20px;">
+                                    <button [disabled]="!otp" class="btn btn-success btn-md" type="button"
+                                        (click)="verifyOTP()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center">
+                                Already have an Account? <a routerLink="/login">Sign in</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

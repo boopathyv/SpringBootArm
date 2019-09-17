@@ -1,0 +1,180 @@
+<div class="app-answer-questions">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        Answer Questions
+
+        <div class="row" style="margin-top:15px;">
+          <div class="col-sm-12">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" [ngClass]="{'btn-primary': testQuestionType == 'Governance'}" class="btn btn-default"
+                (click)="changeQuestionType('Governance')">Governance</button>
+              <button type="button" [ngClass]="{'btn-primary': testQuestionType == 'Ethics Integrity and Aptitude'}" class="btn btn-default"
+                (click)="changeQuestionType('Ethics Integrity and Aptitude')">
+                Ethics Integrity & Aptitude
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row test-questions-table">
+          <div class="col-sm-12">
+            <button type="button" *ngIf="isAdmin" data-toggle="modal" data-target="#test-question-modal"
+              class="btn btn-sm btn-primary test-question-add-btn">
+              Add&nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-sm-12">
+            <table class="table table-striped" [mfData]="testQuestions" #mf="mfDataTable" [mfRowsOnPage]="5">
+              <thead>
+                <tr>
+                  <th>
+                    <mfDefaultSorter by="sequenceNo">#Sequence No</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter>Question</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="testDate">Test Date</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter>Model Answer</mfDefaultSorter>
+                  </th>
+                  <!-- <th>
+                    <mfDefaultSorter by="answerUploadedOn">Answer Uploaded On</mfDefaultSorter>
+                  </th> -->
+                  <th>
+                    <mfDefaultSorter>General Discussion</mfDefaultSorter>
+                  </th>
+                  <th *ngIf="!isAdmin">
+                    <mfDefaultSorter>Your Answer</mfDefaultSorter>
+                  </th>
+                  <th *ngIf="!isAdmin">
+                    <mfDefaultSorter>Video Feedback of Your Answer</mfDefaultSorter>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of mf.data">
+                  <td>
+                    {{item.sequenceNo}}
+                    &nbsp; <button type="button" *ngIf="isAdmin" (click)="goToAnswersList(item.testQuestionId)"
+                      class="btn btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                  </td>
+                  <td><a href="{{serviceUrl}}?file={{item.filePath}}" target="_blank">Click to View <i
+                        class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a></td>
+                  <td>{{getDateFormat(item.testDate)}}</td>
+                  <td>
+                    <a *ngIf="item.hasAnswer" href="{{serviceUrl}}?file={{item.answerFilePath}}" target="_blank">Click
+                      to view <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a>
+                    <div *ngIf="!item.hasAnswer && isAdmin">
+                      <form>
+                        <div class="form-group">
+                          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                        </div>
+                        <button type="button" class="btn btn-sm btn-success"
+                          (click)="uploadAnswer(item.testQuestionId)">
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                  <!-- <td>{{item.hasAnswer ? getDateFormat(item.answerUploadedOn) : 'NIL'}}</td> -->
+                  <td>
+                    <a *ngIf="item.discussionFilePath" href="{{serviceUrl}}?file={{item.discussionFilePath}}"
+                      target="_blank">
+                      Click To View <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a>
+                    <div *ngIf="!item.discussionFilePath && isAdmin">
+                      <form>
+                        <div class="form-group">
+                          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                        </div>
+                        <button type="button" class="btn btn-sm btn-success"
+                          (click)="uploadDiscussion(item.testQuestionId)">
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                  <td *ngIf="!isAdmin">
+                    <a *ngIf="getAnswerForTest(item.testQuestionId)"
+                      href="{{serviceUrl}}?file={{getAnswerForTest(item.testQuestionId).filePath}}">
+                      Click to view <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a>
+                    <div *ngIf="!getAnswerForTest(item.testQuestionId)" target="_blank">
+                      <form>
+                        <div class="form-group">
+                          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                        </div>
+                        <button type="button" class="btn btn-sm btn-success"
+                          (click)="uploadAnswer(item.testQuestionId)">
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                  <td *ngIf="!isAdmin">
+                    <a target="_blank"
+                      *ngIf="getAnswerForTest(item.testQuestionId) && getAnswerForTest(item.testQuestionId).isCorrected"
+                      href="{{serviceUrl}}?file={{getAnswerForTest(item.testQuestionId).feedbackFilePath}}">
+                      Click to view <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="test-question-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div style="font-size: 20px;">Create New Question</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="newsTt">Test Date</label>
+            <input type="date" class="form-control" name="testDate" id="newsTxt" placeholder=""
+              [(ngModel)]="testQuestion.testDate" min="2019-6-24">
+          </div>
+
+          <div class="form-group">
+            <label for="seqNo">Sequence Number</label>
+            <input type="number" class="form-control" id="seqNo" name="sequenceNo"
+              [(ngModel)]="testQuestion.sequenceNo">
+          </div>
+          <div class="form-group">
+            <label for="file">Choose File &nbsp;&nbsp;</label>
+            <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="test-question-cancel" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="createTestQuestion()">Save changes</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
